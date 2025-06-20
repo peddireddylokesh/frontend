@@ -13,7 +13,7 @@ pipeline {
         DEBUG = 'true'
     }
 
-    options {
+    options {                                                    
         timeout(time: 30, unit: 'MINUTES')
         disableConcurrentBuilds()
     }
@@ -52,7 +52,7 @@ pipeline {
                 expression { params.deploy }
             }
             steps {
-                build job: 'backend-cd', parameters: [string(name: 'version', value: "${appVersion}")],wait: true        
+                build job: 'frontend-cd', parameters: [string(name: 'version', value: "${appVersion}")],wait: true        
             }
         }    
     }           
