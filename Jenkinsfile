@@ -18,7 +18,7 @@ pipeline {
         disableConcurrentBuilds()
     }
     parameters {
-        booleanParam(name: 'deploy', defaultValue: false, description: 'Enter the application version')
+        booleanParam(name: 'deploy', defaultValue: false, description: 'select to deploy application')
     }
     stages {                               
         stage('Read the Version') {
