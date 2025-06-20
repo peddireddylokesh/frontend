@@ -47,20 +47,20 @@ pipeline {
                 }
             }
         }
-       /*  stage('Trigger Deploy') {
+        stage('Trigger Deploy') {
             when {
                 expression { params.deploy }
             }
             steps {
                 build job: 'backend-cd', parameters: [string(name: 'version', value: "${appVersion}")],wait: true        
             }
-        }     */
+        }    
     }           
 
     post {
         always {
             echo 'This will always run'
-            cleanWs()  // 💡 Jenkins built-in step to clean workspace
+            deleteDir()  // 💡 Jenkins built-in step to clean workspace
         }
         success {
             echo 'This will run only if the pipeline is successful'
